@@ -1,0 +1,74 @@
+site_name: "Mo Sharif"
+theme:
+  name: material
+  palette:
+    primary: pink
+  include_sidebar: yes
+  features:
+    - navigation.instant
+    #- navigation.sections
+    #- navigation.tabs
+  favicon: ./images/terminal-24.svg
+  logo: ./images/terminal-24.svg
+
+nav:
+  - Home: index.md
+  - Posts:
+    - 2020:
+      - KringleCon 3: ./posts/2020/kringlecon3/index.md
+    - 2019:
+      - KringleCon 2: ./posts/2019/kringlecon2/2020-01-13-KringleCon2.md
+      - How to Deobfuscate JavaScript: ./posts/2019/post3/2019-06-16-HowToDeobfuscateJS.md
+      - How to Sign Up for Hack The Box: ./posts/2019/post2/2019-04-22-HowToSignUpForHackTheBox.md
+      - How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks: ./posts/2019/post1/2019-04-06-HowToCreateAVM.md
+    - 2018:
+      - How to Create an AWS Lambda Layer: ./posts/2018/post3/2018-12-16-HowToCreateAnAWSLambdaLayer.md
+      - How to Create an AWS Lambda Function: ./posts/2018/post2/2018-11-12-HowToCreateAnAWSLambdaFunction.md
+      - How to Create a Twitter App: ./posts/2018/post1/2018-11-03-HowToCreateATwitterApp.md
+  - Books: books.md
+  - Resources: resources.md
+  - Donate: https://www.patreon.com/mo4n6
+  - About: about.md
+
+
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
