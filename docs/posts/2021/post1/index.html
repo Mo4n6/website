@@ -1,0 +1,1038 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../../images/terminal-24.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>Migrating Blog from Jekyll to MkDocs on GitHub pages - Mo Sharif</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#e92063">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="pink" data-md-color-accent="">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#migrating-blog-from-jekyll-to-mkdocs-on-github-pages" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Mo Sharif" class="md-header-nav__button md-logo" aria-label="Mo Sharif">
+      
+  <img src="../../../images/terminal-24.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Mo Sharif
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              Migrating Blog from Jekyll to MkDocs on GitHub pages
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Mo Sharif" class="md-nav__button md-logo" aria-label="Mo Sharif">
+      
+  <img src="../../../images/terminal-24.svg" alt="logo">
+
+    </a>
+    Mo Sharif
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../.." class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Posts
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Posts" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Posts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  
+
+
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-2-1">
+      2021
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2021" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        <span class="md-nav__icon md-icon"></span>
+        2021
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../kringlecon3/" class="md-nav__link">
+      KringleCon 3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Migrating Blog from Jekyll to MkDocs on GitHub pages
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      Migrating Blog from Jekyll to MkDocs on GitHub pages
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-basics" class="md-nav__link">
+    The Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-pages-deployment" class="md-nav__link">
+    GitHub Pages Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-domains" class="md-nav__link">
+    Custom Domains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-switch-over" class="md-nav__link">
+    The Switch Over
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+    
+    <label class="md-nav__link" for="nav-2-2">
+      2020
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2020" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        <span class="md-nav__icon md-icon"></span>
+        2020
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../2020/kringlecon2/2020-01-13-KringleCon2/" class="md-nav__link">
+      KringleCon 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" >
+    
+    <label class="md-nav__link" for="nav-2-3">
+      2019
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2019" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        <span class="md-nav__icon md-icon"></span>
+        2019
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../2019/post3/2019-06-16-HowToDeobfuscateJS/" class="md-nav__link">
+      How to Deobfuscate JavaScript
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../2019/post2/2019-04-22-HowToSignUpForHackTheBox/" class="md-nav__link">
+      How to Sign Up for Hack The Box
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../2019/post1/2019-04-06-HowToCreateAVM/" class="md-nav__link">
+      How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" >
+    
+    <label class="md-nav__link" for="nav-2-4">
+      2018
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="2018" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        <span class="md-nav__icon md-icon"></span>
+        2018
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../2018/post3/2018-12-16-HowToCreateAnAWSLambdaLayer/" class="md-nav__link">
+      How to Create an AWS Lambda Layer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../2018/post2/2018-11-12-HowToCreateAnAWSLambdaFunction/" class="md-nav__link">
+      How to Create an AWS Lambda Function
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../2018/post1/2018-11-03-HowToCreateATwitterApp/" class="md-nav__link">
+      How to Create a Twitter App
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../books/" class="md-nav__link">
+      Books
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../podcasts/" class="md-nav__link">
+      Podcasts
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    
+    <label class="md-nav__link" for="nav-5">
+      Resources
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Resources" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/ai/" class="md-nav__link">
+      AI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/career/" class="md-nav__link">
+      Career
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/cheatsheets/" class="md-nav__link">
+      Cheat Sheets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/cloud/" class="md-nav__link">
+      Cloud
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  
+  <li class="md-nav__item md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5" >
+    
+    <label class="md-nav__link" for="nav-5-5">
+      Cybersecurity
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Cybersecurity" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-5">
+        <span class="md-nav__icon md-icon"></span>
+        Cybersecurity
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/cybersecurity/" class="md-nav__link">
+      General
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/dfir/" class="md-nav__link">
+      DFIR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/rem/" class="md-nav__link">
+      REM
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/dev/" class="md-nav__link">
+      Dev
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/education/" class="md-nav__link">
+      Education
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/articles/" class="md-nav__link">
+      Interesting Articles
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/blogs/" class="md-nav__link">
+      Interesting Blogs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/tools/" class="md-nav__link">
+      Interesting Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../resources/videos/" class="md-nav__link">
+      Interesting Videos
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="https://www.patreon.com/mo4n6" class="md-nav__link">
+      Donate
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-basics" class="md-nav__link">
+    The Basics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-pages-deployment" class="md-nav__link">
+    GitHub Pages Deployment
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-domains" class="md-nav__link">
+    Custom Domains
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-switch-over" class="md-nav__link">
+    The Switch Over
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="migrating-blog-from-jekyll-to-mkdocs-on-github-pages">Migrating Blog from Jekyll to MkDocs on GitHub Pages<a class="headerlink" href="#migrating-blog-from-jekyll-to-mkdocs-on-github-pages" title="Permanent link">&para;</a></h1>
+<div style="text-align: right"> Post Date:   2020-01-08 </div>
+
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>This article will describe the steps to migrate a blog from Jekyll to MkDocs on GitHub Pages.</p>
+<p>For a while, I've been looking for better ways to organize my blog. Recently, I came across MkDocs (Material Theme), and it seemed promising. Jekyll has many different themes, and there may be a theme out there that works much better than MkDocs, but I haven't find it yet. I know it's out there!</p>
+<p>My objective for this project was to organize my blog better while spending the least amount of time. MkDocs (with Material Theme) seems to offer these out of the box. If you know of other frameworks/themes that better meet this objective, please let me know.</p>
+<p>Here is how the old blog looked:</p>
+<hr />
+<p><a href="../../../images/2020/post1/img1.png"><img alt="post" src="../../../images/2020/post1/img1.png" /></a></p>
+<hr />
+<p>Here is how the new blog looks:</p>
+<hr />
+<p><a href="../../../images/2020/post1/img2.png"><img alt="post" src="../../../images/2020/post1/img2.png" /></a></p>
+<hr />
+<h2 id="the-basics">The Basics<a class="headerlink" href="#the-basics" title="Permanent link">&para;</a></h2>
+<p>I am not going to go into the details of installing and configuring MkDocs. The <a href="https://www.mkdocs.org/">MkDocs Documentation</a> is good at providing this information. Please refer to this documentation for installation and configuration.</p>
+<p>After you install and configure MkDocs. Create the <code>mkdocs.yml</code> for your blog. This file includes things like the theme and menus. Here is a copy of this website's <a href="https://github.com/Mo4n6/website/blob/main/mkdocs.yml">mkdocs.yml</a> for reference.</p>
+<p>Make a copy and update the blog from Jekyll to MkDocs folder. I had to make some minor changes to the Jekyll posts. For example, I had to remove the Jekyll headers in the blog posts and verify all the image links work correctly.</p>
+<p>At this point, you have a working MkDocs blog, and now you're ready to deploy it to GitHub Pages.</p>
+<hr />
+<h2 id="github-pages-deployment">GitHub Pages Deployment<a class="headerlink" href="#github-pages-deployment" title="Permanent link">&para;</a></h2>
+<p>To deploy your blog with MkDocs on GitHub, you need two folders. You need a project folder (which includes the actual blog) and a folder for the GitHub repository.</p>
+<p>To better understand how MkDocs deployment works, read <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/">this</a>. In summary, this is how the two folders may look like:</p>
+<div class="highlight"><pre><span></span><code>my-project/
+    mkdocs.yml
+    docs/
+orgname.github.io/
+</code></pre></div>
+<p>The <code>my-project/docs/</code> contain the markdown code for the blog. The folder <code>orgname.github.io</code> is your GitHub Pages repository. Where <code>orgname</code> is the username is your username (or organization name) in GitHub.</p>
+<p>The statically generated website is deployed to GitHub with the following code:</p>
+<div class="highlight"><pre><span></span><code>cd ../orgname.github.io/
+mkdocs gh-deploy --config-file ../my-project/mkdocs.yml --remote-branch master
+</code></pre></div>
+<p>I wanted to deploy the new website in a way that I could revert to the old blog. To do this, I decided to create a new branch (<code>main</code>) for my existing GitHub Pages repository. I had to run the following commands to complete this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">mkdir</span> <span class="n">Mo4n6</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
+<span class="n">git</span> <span class="n">init</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Mo4n6</span><span class="o">/</span><span class="n">Mo4n6</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">main</span>
+<span class="n">echo</span> <span class="s2">&quot;Website&quot;</span> <span class="o">&gt;</span> <span class="n">Readme</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">add</span> <span class="n">Readme</span><span class="o">.</span><span class="n">md</span>
+<span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;main branch&#39;</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">main</span>
+</code></pre></div>
+<p>The <code>git checkout -b main</code> will create the new branch <code>main</code>.</p>
+<p>To create the static website with MkDocs and to deploy it to GitHub, I ran the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="n">cd</span> <span class="o">../</span><span class="n">Mo4n6</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span>
+<span class="n">mkdocs</span> <span class="n">gh</span><span class="o">-</span><span class="n">deploy</span> <span class="o">--</span><span class="n">config</span><span class="o">-</span><span class="n">file</span> <span class="o">../</span><span class="n">website</span><span class="o">/</span><span class="n">mkdocs</span><span class="o">.</span><span class="n">yml</span> <span class="o">--</span><span class="n">remote</span><span class="o">-</span><span class="n">branch</span> <span class="n">main</span>
+</code></pre></div>
+<p>where,</p>
+<ul>
+<li><code>website</code> - is your blog folder (with the Markdown code).</li>
+<li><code>main</code> - is the name of the branch you want to push to.</li>
+<li><code>orgname</code> - is the username is your username (or organization name).</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>From MkDocs:</p>
+<p>You should never edit files in your pages repository (eg. Mo4n6.github.io folder) by hand if you're using the gh-deploy command because you will lose your work the next time you run the command.</p>
+</div>
+<p>Now, you've deployed your blog to a new branch on GitHub. You're ready to update the GitHub Pages setting to serve the new blog.</p>
+<hr />
+<h2 id="custom-domains">Custom Domains<a class="headerlink" href="#custom-domains" title="Permanent link">&para;</a></h2>
+<p>As per <a href="https://www.mkdocs.org/user-guide/deploying-your-docs/#deploying-your-docs">docs</a>, in addition to the steps documented by GitHub, you need to take one additional step so that MkDocs will work with your custom domain. You need to add a CNAME file to the root of your docs_dir. In my case, I had to run the following command in the root <code>website</code> folder:</p>
+<div class="highlight"><pre><span></span><code>cd docs
+echo &quot;www.sharif.org&quot; &gt; CNAME
+</code></pre></div>
+<hr />
+<p><a href="../../../images/2020/post1/img4.png"><img alt="post" src="../../../images/2020/post1/img4.png" /></a></p>
+<hr />
+<h2 id="the-switch-over">The Switch Over<a class="headerlink" href="#the-switch-over" title="Permanent link">&para;</a></h2>
+<p>This section will go over switching GitHub Pages from the old branch to the new.</p>
+<p>To do this, update the branch under "Settings&gt;Options&gt;GitHub Pages" to point to the new branch. In my case, I had to open the repository <code>Mo4n6.github.io</code> and go to Settings&gt;Options. I had to select the "main" branch under "GitHub Pages".  Here is a screenshot:</p>
+<hr />
+<p><a href="../../../images/2020/post1/img3.png"><img alt="post" src="../../../images/2020/post1/img3.png" /></a></p>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The migration went as expected. In the future, I may look at adding Google Analytics to the blog. I learned about MkDocs and GitHub pages. I am grateful for markdown as it made easy work migrating the posts from Jekyll to MkDocs.</p>
+<p>Overall, this was a fun project that I enjoyed doing. I look forward to using the new blog.</p>
+<hr />
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../kringlecon3/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                KringleCon 3
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../2020/kringlecon2/2020-01-13-KringleCon2/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                KringleCon 2
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ['navigation.instant'],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

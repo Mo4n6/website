@@ -14,10 +14,12 @@ theme:
 nav:
   - Home: index.md
   - Posts:
+    - 2021:
+      - KringleCon 3: ./posts/2021/kringlecon3/index.html
+      - Migrating Blog from Jekyll to MkDocs on GitHub pages: ./posts/2021/post1/index.html
     - 2020:
-      - KringleCon 3: ./posts/2020/kringlecon3/index.md
+      - KringleCon 2: ./posts/2020/kringlecon2/2020-01-13-KringleCon2.md
     - 2019:
-      - KringleCon 2: ./posts/2019/kringlecon2/2020-01-13-KringleCon2.md
       - How to Deobfuscate JavaScript: ./posts/2019/post3/2019-06-16-HowToDeobfuscateJS.md
       - How to Sign Up for Hack The Box: ./posts/2019/post2/2019-04-22-HowToSignUpForHackTheBox.md
       - How to Create a Win10 VM for Malware Analysis, Forensic or Offensive Tasks: ./posts/2019/post1/2019-04-06-HowToCreateAVM.md
@@ -26,6 +28,7 @@ nav:
       - How to Create an AWS Lambda Function: ./posts/2018/post2/2018-11-12-HowToCreateAnAWSLambdaFunction.md
       - How to Create a Twitter App: ./posts/2018/post1/2018-11-03-HowToCreateATwitterApp.md
   - Books: books.md
+  - Podcasts: podcasts.md
   - Resources: resources.md
   - Donate: https://www.patreon.com/mo4n6
   - About: about.md
@@ -72,3 +75,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
+  - tables
+
+extra_css:
+    - ./assets/stylesheets/main.3b61ea93.min.css
+    - ./assets/stylesheets/palette.39b8e14a.min.css
