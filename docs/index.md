@@ -2,6 +2,7 @@
 ##Latest Posts
 | Posts | Description | Date |
 |:----------- |:----------- |:----------- |
+| [KringleCon 4](\posts\2022\kringlecon4\index.html)| Welcome to the [2021 SANS Holiday Hack Challenge](https://www.sans.org/mlp/holiday-hack-challenge/), featuring KringleCon 4: Calling Birds. This year, we're back at Santa’s castle, but there’s a big new structure next door and talk of a new conference competing with KringleCon!| 2022-01-05 |
 | [KringleCon 3](\posts\2021\kringlecon3\index.html)| This years KringleCon conference was full of exciting challenges and amazing talks. This guide will walk you through the objectives and terminal challenges for this conference. | 2021-01-11 |
 | [Migrating Blog from Jekyll to MkDocs on GitHub Pages](\posts\2021\post1\index.html) | Getting bored with your blog layout? Looking to get it more organized with a snappy side bar and a cool search option? | 2021-01-08 |
 | [KringleCon 2](\posts\2020\kringlecon2\2020-01-13-KringleCon2) | Every year around the holidays SAN releases their CTF Holiday Hack challenge. These Holiday Hack challenges consists of a story and a mystery that revolve around the holidays and Santa. This write-up will provide a walkthrough of the Holiday Hack Challenge. It includes a walkthrough of each objectives and terminal challenge. It will also provide inspiring quotes, hints and strategies on solving future challenges. | 2020-01-13 |
