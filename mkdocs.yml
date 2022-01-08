@@ -29,7 +29,7 @@ nav:
   - Home: index.md
   - Posts:
     - 2022:
-      - KringleCon 4: ./posts/2022/kringlecon4/index.md
+      - KringleCon 4: ./posts/2022/kringlecon4/index.html
     - 2021:
       - KringleCon 3: ./posts/2021/kringlecon3/index.html
       - Migrating Blog from Jekyll to MkDocs on GitHub pages: ./posts/2021/post1/index.html
